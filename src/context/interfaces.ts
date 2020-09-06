@@ -1,15 +1,17 @@
-export interface Balance {
+
+export interface WalletInfo {
+    unit: string
     balance: number
 }
 
-export type BalanceActionTypes = 'updateBalance'
+export type BalanceActionType = 'updateBalance'
 
 export interface BalanceActions {
-    type: BalanceActionTypes
-    payload?: any
+    type: BalanceActionType
+    payload: WalletInfo
 }
 
-export interface BalanceCtx {
-    balanceCtx: Balance
-    dispatch: React.Dispatch<BalanceActionTypes>
+export interface WalletCtx {
+    walletInfo: WalletInfo
+    dispatch: React.Dispatch<BalanceActions>
 }

@@ -1,0 +1,79 @@
+@import "./variables.scss";
+
+.default-form {
+  display: flex;
+  flex-direction: column;
+
+  input {
+    border: none;
+    border-bottom: 1px solid $primary;
+    font-size: 16px;
+  }
+
+  textarea {
+    border: 1px solid $primary;
+    font-size: 16px;
+  }
+
+  input:focus,
+  textarea:focus {
+    outline: none;
+  }
+
+  input:focus {
+    border-bottom: 2px solid $primary;
+  }
+
+  textarea:focus {
+    border: 2px solid $primary;
+  }
+}
+
+.default-form > * {
+  margin: 6px 0;
+}
+
+.default-form-warn {
+  color: orangered;
+}
+
+.cancel-button,
+.send-button {
+  font-size: 12px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.cancel-button:active,
+.send-button:active {
+  outline: none;
+}
+
+.cancel-button {
+  color: red;
+  background: transparent;
+  border: transparent;
+}
+
+.send-button {
+  background: $primary;
+  color: whitesmoke;
+  border: $primary;
+  border-radius: 8px;
+}
+
+.button_box {
+  display: flex;
+  justify-content: flex-end;
+  align-items: row;
+}
+
+@media screen and (min-width: $tablet_vertical) {
+  .default-form {
+    display: flex;
+    flex-direction: row;
+  }
+  .default-form > * {
+    margin: 0 4px;
+  }
+}

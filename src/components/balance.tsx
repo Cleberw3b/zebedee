@@ -1,24 +1,13 @@
-import { FC, useState, useEffect } from 'react'
-import { getWalletDetails } from 'utils/zebedeeApi'
-import { normalizeBalanceToSatoshi } from 'utils/zebedeeUtil'
+import useWalletInfo from 'hooks/useWalletInfo'
+import { FC } from 'react'
+import { GameKey } from 'utils/zebedeeInterfaces'
 
-const Balance: FC = () => {
-    const [balance, setBalance] = useState( 0 )
-
-    useEffect( () => {
-        const myWallet = async () => {
-            const walletDetails = await getWalletDetails()
-            const satoshiBalance = normalizeBalanceToSatoshi( walletDetails )
-            setBalance( satoshiBalance ? satoshiBalance : 0 )
-        }
-        myWallet()
-
-        // return () => setBalance( 0 )
-    }, [] )
+const Balance: FC<GameKey> = ({ gameKey }) => {
+    const { myWallet } = useWalletInfo(gameKey)
 
     return (
         <div className='balance'>
-            {balance}
+            Balance: {myWallet.balance} {myWallet.balance <= 1 ? 'satoshi' : 'satoshis'}
         </div>
     )
 }

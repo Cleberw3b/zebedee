@@ -5,7 +5,8 @@ let isDev = false
 /**
  * Verifies which environment we are working with
  */
-switch ( process.env.NODE_ENV ) {
+switch (process.env.NODE_ENV)
+{
   case 'test':
     isTest = true
     break

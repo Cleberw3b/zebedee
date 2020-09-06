@@ -4,7 +4,7 @@ import { IS_PRODUCTION_ENV } from 'utils/consts'
 export default class extends Document {
   render() {
     return (
-      <Html lang='pt-br'>
+      <Html lang='en_US'>
         <Head>
           {IS_PRODUCTION_ENV && (
             <>
@@ -18,7 +18,7 @@ export default class extends Document {
           <meta name='author' content='CleberW3b - Cléber Oliveira' key='author' />
           <meta name='robots' content='noindex' />
           <meta name='revisit-after' content='1 day' />
-          <meta name='language' content='Portuguese' />
+          <meta name='language' content='English' />
           <meta name='generator' content='N/A' />
           <meta name='theme-color' content='#000000' />
           <link rel='icon' href='/favicon.ico' />

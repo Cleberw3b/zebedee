@@ -1,19 +1,27 @@
 import Balance from 'components/balance'
+import WithdrawCharge from 'components/withdrawCharge'
 import { GetStaticProps } from 'next'
+import { FC } from 'react'
+import { ZEBEDEE_API_KEY } from 'utils/consts'
+import { GameKey } from 'utils/zebedeeInterfaces'
 
-const Home = () => (
+const Home: FC<GameKey> = ({ gameKey }) => (
   <div className='main'>
     <h1>
-      This is a Next Application
+      <Balance gameKey={gameKey} />
     </h1>
-    <Balance />
-    <p>We are running in {process.env.NODE_ENV} mode</p>
+    <WithdrawCharge gameKey={gameKey} />
   </div>
 )
 
 export const getStaticProps: GetStaticProps = async () => {
+
+  const gameKey = ZEBEDEE_API_KEY
+
   return {
-    props: {}
+    props: {
+      gameKey
+    }
   }
 }
 
